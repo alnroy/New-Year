@@ -8,7 +8,7 @@ import { UnrealBloomPass } from 'https://cdn.skypack.dev/three@0.136.0/examples/
 // ==========================================
 const CONFIG = {
     // 8 Seconds for testing. Change to your date for production.
-    targetDate: new Date('December 29, 2025 9:56:40'), 
+    targetDate: new Date('January 1, 2026 00:00:00'), 
     
     santaSpeed: 10,         // Slow and majestic
     autoFireworks: true,
@@ -354,5 +354,6 @@ window.addEventListener('resize', () => {
     camera.aspect = window.innerWidth/window.innerHeight; camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight); bloomPass.resolution.set(window.innerWidth, window.innerHeight);
 });
+
 
 animate();
