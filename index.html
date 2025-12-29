@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy New Year 2026</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="ui-container">
+        <div id="countdown-wrapper">
+            <p class="label">Countdown to 2026</p>
+            <h1 id="countdown">00:00:00</h1>
+        </div>
+
+        <div id="greeting-wrapper" class="hidden">
+            <h1 class="main-title infinite-glow">Happy New Year<br><span class="year">2026</span></h1>
+            
+            <div class="quote-container">
+                <p id="typewriter-text"></p><span class="cursor">|</span>
+            </div>
+        </div>
+    </div>
+<div id="ui-container">
+    <p id="sound-prompt">Tap screen to enable audio</p>
+</div>
+    <canvas id="gl"></canvas>
+
+    <script type="x-shader/x-vertex" id="vertexShaderMoon">
+        varying vec2 vUv; varying vec3 vNormal;
+        void main() { vUv = uv; vNormal = normalize(normalMatrix * normal); gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }
+    </script>
+    <script type="x-shader/x-fragment" id="fragmentShaderMoon">
+        varying vec2 vUv; varying vec3 vNormal;
+        void main() {
+            vec3 lightDir = normalize(vec3(1.0, 0.5, 1.0));
+            float intensity = dot(vNormal, lightDir);
+            float crescent = smoothstep(-0.15, 0.15, intensity);
+            float noise = sin(vUv.x * 40.0) * sin(vUv.y * 40.0) * 0.05;
+            vec3 color = mix(vec3(0.01, 0.01, 0.03), vec3(1.0, 0.98, 0.9) + noise, crescent);
+            float rim = 1.0 - dot(vNormal, vec3(0.0, 0.0, 1.0));
+            color += vec3(0.1, 0.2, 0.5) * pow(rim, 4.0);
+            gl_FragColor = vec4(color, 1.0);
+        }
+    </script>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
