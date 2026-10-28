@@ -8,7 +8,7 @@ import { UnrealBloomPass } from 'https://cdn.skypack.dev/three@0.136.0/examples/
 // ==========================================
 const CONFIG = {
     // 8 Seconds for testing. Change to your date for production.
-    targetDate: new Date('January 1, 2026 00:00:00'), 
+    targetDate: new Date('January 1, 2027 00:00:00'), 
     
     santaSpeed: 10,         // Slow and majestic
     autoFireworks: true,
