@@ -15,7 +15,7 @@ const CONFIG = {
     fireworkChance: 0.03,  // Slightly more frequent
     
     // The Long Quote
-    quoteText: "As the old year fades into history, let us welcome the new one with open hearts. May your journey be filled with starlight, your burdens be light, and your spirit soar higher than ever before."
+    quoteText: "Last Year was wasted successfully next year will also we wasted if you dont change and Try. Good Luck !"
 };
 // ==========================================
 // 🎵 SINGLE AUDIO SETUP
